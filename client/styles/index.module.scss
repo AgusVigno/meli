@@ -1,0 +1,49 @@
+@import 'mixins';
+
+.container {
+  background-color: $color-primary;
+}
+.header__container {
+  max-width: 1200px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem 0;
+  @include desktop(){
+    width: 100%;
+  }
+}
+.header__logo{
+  &:hover{
+    cursor: pointer;
+  }
+}
+.header__search {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  input {
+    padding: 0.8rem;
+    margin-left: 1rem;
+    font-size: 1.8rem;
+    flex: 1;
+    border: none;
+    @include tablet() {
+      margin-left: 3rem;
+    }
+  }
+  button {
+    width: 44px;
+    height: 36px;
+    border: none;
+    img {
+      padding: 0.5rem;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
