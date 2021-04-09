@@ -1,0 +1,52 @@
+@import 'variables';
+@import 'reset';
+
+html {
+  /* evita que los elementos crezcan de tamaño al agregarle margin o padding */
+  box-sizing: border-box;
+  font-size: 62.5%; /* reset para usar REMs donde 1rem = 10px */
+  scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  font-size: 1.6rem;
+  background-color: $gray-very-light;
+  font-family: $font-text;
+}
+
+/** Headings **/
+h1,
+h2,
+h3 {
+  font-family: $font-main;
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 2rem;
+}
+
+/** Globales **/
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+}
