@@ -1,0 +1,173 @@
+@import 'mixins';
+
+.container {
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+  @include desktop(){
+    width: 100%;
+  }
+}
+.category {
+  margin: 1.6rem 0;
+  font-size: 1.2rem;
+  @include tablet(){
+    font-size: 1.4rem;
+  }
+}
+.item__container {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.item__info {
+  display: flex;
+  img {
+    width: 20rem;
+    @include tablet(){
+      width: 40rem;
+    }
+    @include desktop(){
+      width: 68rem;
+    }
+  }
+  button{
+    background-color: $blue;
+    color: $white;
+    border: none;
+    width: 100%;
+    border-radius: 0.4rem;
+    padding: 1.5rem;
+    &:hover{
+      cursor: pointer;
+      background-color: #1958b8;
+    }
+  }
+}
+.item__features {
+  width: calc(100% - 20rem);
+  padding-right: 1rem;
+  @include tablet(){
+    width: calc(100% - 40rem);
+    padding-right: 2rem;    
+  }
+  @include desktop(){
+    width: calc(100% - 68rem);
+    padding-right: 3.2rem;    
+  }
+}
+.item__condition {
+  font-size: 1rem;
+  margin: 0;
+  padding-top: 3.2rem;
+  @include tablet(){
+    font-size: 1.2rem;
+  }
+  @include desktop(){
+    font-size: 1.4rem;
+  }
+}
+.item__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 1.6rem 0 0 0;
+  @include tablet(){
+    font-size: 2rem;
+  }
+  @include desktop(){
+    font-size: 2.4rem;
+  }
+}
+.item__price {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 3.2rem 0;
+  @include tablet(){
+    font-size: 3rem;
+  }
+  @include desktop(){
+    font-size: 4.6rem;
+  }
+  span{
+    position:absolute;
+    top: 3.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid black;
+    @include tablet(){
+      font-size: 1.5rem;
+    }
+    @include desktop(){
+      top: 3.8rem;
+      font-size: 2rem;
+    }
+  }
+}
+.description{
+  width: 100%;
+  padding-left: 1rem;
+  @include tablet(){
+    padding-left: 3.2rem;
+  }
+  p{
+    font-size: 2rem;
+    margin: 0;
+    @include tablet(){
+      font-size: 2.4rem;
+    }
+    @include desktop(){
+      font-size: 2.8rem;
+    }
+  }
+  p.description__text{
+    font-size: 1.2rem;
+    padding: 1rem 0;
+    line-height: 1.5;
+    @include tablet(){
+      font-size: 1.4rem;
+      padding: 2.5rem 0;
+    }
+    @include desktop(){
+      font-size: 1.6rem;
+      padding: 3.2rem 0;
+    }
+  }
+  @include desktop(){
+    width: 68rem;
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: 1s all;
+  opacity: 1;
+  p{
+    margin-top: 2rem;
+    color: var(--blanco);
+  }
+  & .spin {
+    border: 3px solid $gray-light;
+    border-top-color: $black;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    animation: spin 1s linear infinite;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
