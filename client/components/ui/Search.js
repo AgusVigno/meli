@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, compose } from 'redux';
 import { useRouter } from 'next/router';
 import { fetchProducts } from '../../store/product/product.actions';
+import Loader from './Loader';
 import styles from '../../styles/index.module.scss';
 
 const Search = ({ fetchProducts }) => {
@@ -23,19 +24,20 @@ const Search = ({ fetchProducts }) => {
 
   return (
     <>
-      {loading && <p>Cargando</p>}
+      {loading && <Loader />}
       <form
         className={styles.header__search}
         onSubmit={(event) => handleSubmit(event)}
       >
         <input
+          data-testid="input-submit"
           type="text"
           placeholder="Nunca dejes de buscar"
           value={search}
           onChange={(evet) => setSearch(evet.target.value)}
         />
-        <button type="submit">
-          <img src="/images/search.png" alt="icon search" />
+        <button data-testid="btn-submit" type="submit">
+          <img data-testid="logo" src="/images/search.png" alt="icon search" />
         </button>
       </form>
     </>
