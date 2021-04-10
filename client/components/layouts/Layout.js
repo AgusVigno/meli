@@ -6,7 +6,9 @@ const Layout = (props) => {
   return (
     <>
       <Head>
-        <title>Challenge Mercado Libre</title>
+        <title>
+          Challenge Mercado Libre {props.title && `- ${props.title}`}
+        </title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap"
