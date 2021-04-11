@@ -20,7 +20,11 @@ const Breadcrumb = ({ categories }) => {
     }
   }, [categories]);
 
-  return <p className={styles.category}>{breadcrumb}</p>;
+  return (
+    <p data-testid="breadcrumb" className={styles.category}>
+      {breadcrumb}
+    </p>
+  );
 };
 
 export default Breadcrumb;

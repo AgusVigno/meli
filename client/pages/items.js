@@ -10,16 +10,14 @@ import Breadcrumb from '../components/ui/Breadcrumb.js';
 import styles from '../styles/items.module.scss';
 
 const Items = ({ error, products, categories }) => {
-  /* 
-    Detecta algún error, y se lo muestra durante 2 segundos al usuario
-  */
+  // Detecta algun mensaje a mostrar al usuario, y se lo muestra durante 4 segundos
   useEffect(() => {
     if (error) {
       toast.error(error);
       resetError();
     }
     // eslint-disable-next-line
-  }, [error, products]);
+  }, [error]);
 
   return (
     <div>
@@ -52,11 +50,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators(
-    {
-      resetError,
-    },
-    dispatch
-  );
+  bindActionCreators({ resetError }, dispatch);
 
 export default compose(connect(mapStateToProps, mapDispatchToProps))(Items);
