@@ -34,5 +34,4 @@ yarn-error.log*
 .vercel
 
 package-lock.json
-server/*
 *.txt
