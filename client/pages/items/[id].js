@@ -62,7 +62,6 @@ const ItemDetail = ({
     Al obtener el producto segun el ID, se obtiene el nombre de las caterías para armar el Breadcrumb dinamicamente 
   */
   useEffect(() => {
-    console.log('Producto: ', product);
     product &&
       fetchCategoryName(product.category_id).then((response) =>
         setCategories(response.path_from_root.map((category) => category.name))

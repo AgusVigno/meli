@@ -14,8 +14,6 @@ const Items = ({ error, products, categories }) => {
     Detecta algún error, y se lo muestra durante 2 segundos al usuario
   */
   useEffect(() => {
-    console.log('Productos', products);
-
     if (error) {
       toast.error(error);
       resetError();
