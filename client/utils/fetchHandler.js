@@ -10,7 +10,7 @@ export const runFetch = (url, params = {}) => {
           ? Promise.resolve(response.json())
           : Promise.resolve(true);
       }
-      store.dispatch(setError(response.status));
+      store.dispatch(setError('Hubo un error en la consulta.'));
       return false;
     })
     .catch((error) => {

@@ -36,10 +36,8 @@ const ItemDetail = ({
   const [product, setProduct] = useState(null);
   const [categories, setCategories] = useState([]);
 
-  /* 
-    Detecta algun mensaje a mostrar al usuario, y se lo muestra durante 2 segundos (en caso de exito) o 4 segundos (en caso de error)
-  */
   useEffect(() => {
+    // Detecta algun mensaje a mostrar al usuario, y se lo muestra durante 2 segundos (en caso de exito) o 4 segundos (en caso de error)
     if (error) {
       toast.error(error);
       resetError();
@@ -53,15 +51,19 @@ const ItemDetail = ({
 
   useEffect(() => {
     id &&
-      getProductById(id)
-        .then((response) => setProduct(response.item))
-        .finally(() => setLoading(false));
+      getProductById(id).then((response) => {
+        if (response) {
+          setLoading(false);
+          setProduct(response.item);
+        } else {
+          setLoading(false);
+          router.push('/');
+        }
+      });
   }, [id]);
 
-  /* 
-    Al obtener el producto segun el ID, se obtiene el nombre de las caterías para armar el Breadcrumb dinamicamente 
-  */
   useEffect(() => {
+    // Al obtener el producto segun el ID, se obtiene el nombre de las caterías para armar el Breadcrumb dinamicamente
     product &&
       fetchCategoryName(product.category_id).then((response) =>
         setCategories(response.path_from_root.map((category) => category.name))
