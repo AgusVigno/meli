@@ -7,7 +7,7 @@ const Item = ({ product }) => {
   const { id, title, price, picture, free_shipping, location } = product;
 
   return (
-    <li className={styles.item}>
+    <li data-testid="producto" className={styles.item}>
       <div className={styles.item__data}>
         <Link href="/items/[id]" as={`/items/${id}`}>
           <img src={picture} alt="product" className={styles.picture} />
