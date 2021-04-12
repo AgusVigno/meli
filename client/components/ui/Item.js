@@ -10,11 +10,16 @@ const Item = ({ product }) => {
     <li data-testid="producto" className={styles.item}>
       <div className={styles.item__data}>
         <Link href="/items/[id]" as={`/items/${id}`}>
-          <img src={picture} alt="product" className={styles.picture} />
+          <img
+            data-testid="producto-imagen"
+            src={picture}
+            alt="product"
+            className={styles.picture}
+          />
         </Link>
         <div className={styles.item__description}>
           <div className={styles.item__price}>
-            <p>
+            <p data-testid="producto-precio">
               {priceFormat(price)}
               <span>{price.decimals ? price.decimals : '00'}</span>
             </p>
@@ -23,11 +28,15 @@ const Item = ({ product }) => {
             )}
           </div>
           <Link href="/items/[id]" as={`/items/${id}`}>
-            <p className={styles.item__title}>{title}</p>
+            <p data-testid="producto-titulo" className={styles.item__title}>
+              {title}
+            </p>
           </Link>
         </div>
       </div>
-      <p className={styles.item__address}>{location}</p>
+      <p data-testid="producto-ubicacion" className={styles.item__address}>
+        {location}
+      </p>
     </li>
   );
 };
