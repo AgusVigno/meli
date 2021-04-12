@@ -1,7 +1,7 @@
 import React from 'react';
-import { render as rtlRender } from '@testing-library/react';
-import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+import { render as rtlRender } from '@testing-library/react';
 import appReducer from '../store/app/app.reducer';
 import productReducer from '../store/product/product.reducer';
 
@@ -24,7 +24,6 @@ function render(
   return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
 }
 
-// re-export everything
 export * from '@testing-library/react';
-// override render method
+
 export { render };

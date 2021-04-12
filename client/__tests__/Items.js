@@ -29,5 +29,11 @@ describe('render <Items />', () => {
 
     // se valida que haya 4 productos en el listado
     expect(screen.getAllByTestId('producto').length).toBe(4);
+
+    // se valida que cada producto este renderizado correctamente
+    expect(screen.getAllByTestId('producto-imagen').length).toBe(4);
+    expect(screen.getAllByTestId('producto-precio').length).toBe(4);
+    expect(screen.getAllByTestId('producto-titulo').length).toBe(4);
+    expect(screen.getAllByTestId('producto-ubicacion').length).toBe(4);
   });
 });
