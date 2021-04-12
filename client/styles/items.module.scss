@@ -11,11 +11,20 @@
 .items__container {
   background-color: $white;
 }
-.category {
+.categories {
+  display: flex;
   margin: 1.6rem 0;
   font-size: 1.2rem;
   @include tablet(){
     font-size: 1.4rem;
+  }
+  li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:last-of-type p{
+      font-weight: bold;
+    }
   }
 }
 .item {
