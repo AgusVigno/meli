@@ -3,13 +3,13 @@ import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import { resetError } from '../store/app/app.actions';
-import { getCategories, getErrorMsg, getProducts } from '../store/selectors';
+import { getErrorMsg, getProducts } from '../store/selectors';
 import Layout from '../components/layouts/Layout';
 import Item from '../components/ui/Item.js';
 import Breadcrumb from '../components/ui/Breadcrumb.js';
 import styles from '../styles/items.module.scss';
 
-const Items = ({ error, products, categories }) => {
+const Items = ({ error, products }) => {
   // Detecta algun mensaje a mostrar al usuario, y se lo muestra durante 4 segundos
   useEffect(() => {
     if (error) {
@@ -23,7 +23,7 @@ const Items = ({ error, products, categories }) => {
     <div>
       <Layout title="Productos">
         <div className={styles.list__items}>
-          <Breadcrumb categories={categories} />
+          <Breadcrumb />
           <ul className={styles.items__container}>
             {products && products.length === 0 ? (
               <p>No hay resultados</p>
@@ -45,7 +45,6 @@ const Items = ({ error, products, categories }) => {
 
 const mapStateToProps = (state) => ({
   products: getProducts(state),
-  categories: getCategories(state),
   error: getErrorMsg(state),
 });
 

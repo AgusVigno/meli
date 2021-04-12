@@ -9,10 +9,7 @@ import {
   resetSuccessMsg,
   setSuccessMsg,
 } from '../../store/app/app.actions';
-import {
-  getProductById,
-  fetchCategoryName,
-} from '../../store/product/product.actions';
+import { getProductById } from '../../store/product/product.actions';
 import { priceFormat } from '../../utils/helpers';
 import Layout from '../../components/layouts/Layout';
 import Breadcrumb from '../../components/ui/Breadcrumb';
@@ -21,7 +18,6 @@ import styles from '../../styles/item.module.scss';
 
 const ItemDetail = ({
   getProductById,
-  fetchCategoryName,
   error,
   success,
   resetError,
@@ -34,7 +30,6 @@ const ItemDetail = ({
   } = router;
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState(null);
-  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     // Detecta algun mensaje a mostrar al usuario, y se lo muestra durante 2 segundos (en caso de exito) o 4 segundos (en caso de error)
@@ -62,14 +57,6 @@ const ItemDetail = ({
       });
   }, [id]);
 
-  useEffect(() => {
-    // Al obtener el producto segun el ID, se obtiene el nombre de las caterías para armar el Breadcrumb dinamicamente
-    product &&
-      fetchCategoryName(product.category_id).then((response) =>
-        setCategories(response.path_from_root.map((category) => category.name))
-      );
-  }, [product]);
-
   const onClick = () => {
     setSuccessMsg('Se realizó con éxito.');
   };
@@ -80,7 +67,7 @@ const ItemDetail = ({
         <Loader />
       ) : (
         <div className={styles.container}>
-          <Breadcrumb categories={categories} />
+          <Breadcrumb />
           <div className={styles.item__container}>
             <div className={styles.item__info}>
               <img src={product.picture} alt="product" />
@@ -123,7 +110,6 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       getProductById,
-      fetchCategoryName,
       setSuccessMsg,
       resetSuccessMsg,
       resetError,

@@ -21,6 +21,23 @@ exports.getProducts = async (req, res, next) => {
   }
 };
 
+exports.getProductsByCategory = async (req, res, next) => {
+  try {
+    const categoryId = req.query.id;
+    const results = await api.get(
+      `sites/MLA/search?category=${categoryId}&limit=${config.LIMIT_SEARCH}`
+    );
+    const categories = results.data.filters.find(
+      (filter) => filter.id === 'category'
+    );
+    const response = formatSearch(results.data.results, categories);
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(400).json(error);
+    next(error);
+  }
+};
+
 exports.getProductById = async (req, res, next) => {
   try {
     const productId = req.params.id;

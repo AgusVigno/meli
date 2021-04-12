@@ -17,6 +17,18 @@ export const fetchProducts = (query) => async (dispatch) => {
   }
 };
 
+export const fetchProductsByCategory = (categoryId) => async (dispatch) => {
+  try {
+    const response = await productService.getAllByCategory(categoryId);
+    response
+      ? dispatch(setProducts(response))
+      : dispatch({ type: PRODUCT_ACTION_TYPES.FETCH_PRODUCTS_ERROR });
+    return response;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
 export const getProductById = (productId) => async (dispatch) => {
   try {
     const response = await productService.getById(productId);

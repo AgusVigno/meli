@@ -25,6 +25,9 @@
     &:last-of-type p{
       font-weight: bold;
     }
+    p:hover{
+      cursor: pointer;
+    }
   }
 }
 .item {

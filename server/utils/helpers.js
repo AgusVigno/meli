@@ -1,6 +1,6 @@
 const formatCategories = (categories) => {
   const categoriesFormated = categories
-    ? categories.values[0].path_from_root.map((category) => category.name)
+    ? categories.values[0].path_from_root
     : [];
   return categoriesFormated;
 };
