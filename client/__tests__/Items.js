@@ -3,6 +3,7 @@ import { render, screen } from '../utils/test';
 import '@testing-library/jest-dom/extend-expect';
 import Items from '../pages/items';
 import { INITIAL_STATE } from '../mocks/initialState';
+import { CATEGORIES } from '../mocks/categories';
 
 describe('render <Items />', () => {
   test('renders Listado de Productos', async () => {
@@ -24,8 +25,8 @@ describe('render <Items />', () => {
     ).toBeInTheDocument();
 
     // se valida que este renderizado el breadcrumb
-    const breadcrumb = screen.getByTestId('breadcrumb');
-    expect(breadcrumb).toBeInTheDocument();
+    const breadcrumb = screen.getAllByTestId('breadcrumb');
+    expect(breadcrumb.length).toBe(CATEGORIES.length);
 
     // se valida que haya 4 productos en el listado
     expect(screen.getAllByTestId('producto').length).toBe(4);

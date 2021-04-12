@@ -3,11 +3,11 @@ const supertest = require('supertest');
 const request = supertest(app);
 
 const productId = 'MLA810890986';
-const categoryId = 'MLA47769';
+const categoryId = 'MLA3231';
 
 describe('Obtener listado productos', () => {
   test('busqueda de producto', async (done) => {
-    const response = await request.get('/api/items?q=termos');
+    const response = await request.get('/api/items?q=camas');
     expect(response.status).toBe(200);
     // check tipo y cantidad
     expect(Array.isArray(response.body.items)).toBeTruthy();
@@ -38,7 +38,7 @@ describe('Obtener listado productos', () => {
 });
 
 describe('Obtener detalle producto', () => {
-  test('ID válido', async (done) => {
+  test('ID producto válido', async (done) => {
     const response = await request.get(`/api/items/${productId}`);
     expect(response.status).toBe(200);
     // check tipo y data
@@ -54,27 +54,31 @@ describe('Obtener detalle producto', () => {
     expect(response.body.item.category_id).toBeDefined();
     done();
   });
-  test('ID inválido', async (done) => {
+  test('ID producto inválido', async (done) => {
     const response = await request.get('/api/items/id-invalido');
     expect(response.status).toBe(404);
     done();
   });
 });
 
-describe('Obtener categorías producto', () => {
-  test('ID válido', async (done) => {
-    const response = await request.get(`/api/categories/${categoryId}`);
+describe('Obtener productos por categoría', () => {
+  test('ID categoría válido', async (done) => {
+    const response = await request.get(`/api/category?id=${categoryId}`);
     expect(response.status).toBe(200);
-    // check tipo y data
-    expect(response.body.id).toBe(categoryId);
-    expect(response.body.name).toBeDefined();
-    expect(response.body.path_from_root).toBeDefined();
-    expect(Array.isArray(response.body.path_from_root)).toBeTruthy();
-    expect(response.body.path_from_root.length).toBeGreaterThan(0);
+    // check tipo y cantidad
+    expect(Array.isArray(response.body.items)).toBeTruthy();
+    expect(Array.isArray(response.body.categories)).toBeTruthy();
+    expect(response.body.items.length).toEqual(4);
+    expect(response.body.categories.length).toBeGreaterThan(0);
+
+    // check data
+    expect(response.body.items).toBeDefined();
+    expect(response.body.author).toBeDefined();
+    expect(response.body.categories).toBeDefined();
     done();
   });
-  test('ID inválido', async (done) => {
-    const response = await request.get('/api/categories/id-invalido');
+  test('ID categoría inválido', async (done) => {
+    const response = await request.get('/api/category/id-invalido');
     expect(response.status).toBe(404);
     done();
   });

@@ -33,6 +33,7 @@ const Breadcrumb = ({ categories, fetchProductsByCategory }) => {
       {categories && loading ? (
         <Loader />
       ) : (
+        categories &&
         categories.map((category, index) => (
           <li key={index} data-testid="breadcrumb">
             <p onClick={() => setCategory(category.id)}>{category.name}</p>

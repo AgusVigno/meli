@@ -50,14 +50,3 @@ exports.getProductById = async (req, res, next) => {
     next(error);
   }
 };
-
-exports.getCategory = async (req, res, next) => {
-  try {
-    const categoryId = req.params.id;
-    const result = await api.get(`categories/${categoryId}`);
-    res.status(200).json(result.data);
-  } catch (error) {
-    res.status(404).json(error);
-    next(error);
-  }
-};
