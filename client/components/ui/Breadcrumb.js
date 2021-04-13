@@ -52,7 +52,7 @@ Breadcrumb.propTypes = {
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
   fetchProductsByCategory: PropTypes.func.isRequired,
 };
 

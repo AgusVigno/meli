@@ -60,7 +60,7 @@ Items.propTypes = {
       free_shipping: PropTypes.bool.isRequired,
       location: PropTypes.string.isRequired,
     }).isRequired
-  ).isRequired,
+  ),
 };
 
 const mapStateToProps = (state) => ({
