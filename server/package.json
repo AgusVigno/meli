@@ -9,7 +9,7 @@
     "prettier": "prettier . --write",
     "test": "jest --detectOpenHandles"
   },
-  "author": "",
+  "author": "Agustín Vignolo",
   "license": "ISC",
   "jest": {
     "testEnvironment": "node",

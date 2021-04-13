@@ -51,7 +51,6 @@ describe('Obtener detalle producto', () => {
     expect(response.body.item.free_shipping).toBeDefined();
     expect(Number.isInteger(response.body.item.sold_quantity)).toBeTruthy();
     expect(response.body.item.description).toBeDefined();
-    expect(response.body.item.category_id).toBeDefined();
     done();
   });
   test('ID producto inválido', async (done) => {

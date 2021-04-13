@@ -35,7 +35,6 @@ const formatItem = (item, detail = false, description = '') => {
       ...formatedItem,
       sold_quantity: item.sold_quantity,
       description: description.plain_text,
-      category_id: item.category_id,
     };
   } else {
     formatedItem = {

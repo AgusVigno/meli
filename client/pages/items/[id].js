@@ -105,10 +105,10 @@ const ItemDetail = ({
 ItemDetail.propTypes = {
   error: PropTypes.string,
   success: PropTypes.string,
-  getProductById: PropTypes.string.isRequired,
-  setSuccessMsg: PropTypes.string.isRequired,
-  resetSuccessMsg: PropTypes.string.isRequired,
-  resetError: PropTypes.string.isRequired,
+  getProductById: PropTypes.func.isRequired,
+  setSuccessMsg: PropTypes.func.isRequired,
+  resetSuccessMsg: PropTypes.func.isRequired,
+  resetError: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
