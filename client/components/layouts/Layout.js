@@ -15,6 +15,14 @@ const Layout = (props) => {
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
         />
+        <meta
+          name="keywords"
+          content="comercio electrónico, e-commerce, negocio electrónico, e-business"
+        />
+        <meta
+          name="description"
+          content="Compra y venta de todo tipo de productos."
+        />
       </Head>
       <Header />
       <main>{props.children}</main>
