@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import toast, { Toaster } from 'react-hot-toast';
 import { resetError } from '../store/app/app.actions';
 import { getErrorMsg, getProducts } from '../store/selectors';
@@ -41,6 +42,25 @@ const Items = ({ error, products }) => {
       </Layout>
     </div>
   );
+};
+
+Items.propTypes = {
+  error: PropTypes.string,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      price: PropTypes.shape({
+        currency: PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
+        decimals: PropTypes.number,
+      }).isRequired,
+      picture: PropTypes.string.isRequired,
+      condition: PropTypes.string.isRequired,
+      free_shipping: PropTypes.bool.isRequired,
+      location: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 const mapStateToProps = (state) => ({

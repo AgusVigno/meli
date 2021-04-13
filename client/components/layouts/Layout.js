@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 import Header from './Header';
 
 const Layout = (props) => {
@@ -21,4 +22,8 @@ const Layout = (props) => {
   );
 };
 
+Layout.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.any,
+};
 export default Layout;

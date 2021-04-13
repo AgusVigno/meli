@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, compose } from 'redux';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import { getCategories } from '../../store/selectors';
 import { fetchProductsByCategory } from '../../store/product/product.actions';
 import Loader from './Loader';
@@ -43,6 +44,16 @@ const Breadcrumb = ({ categories, fetchProductsByCategory }) => {
       )}
     </ul>
   );
+};
+
+Breadcrumb.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  fetchProductsByCategory: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

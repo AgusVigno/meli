@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import toast, { Toaster } from 'react-hot-toast';
 import { getSuccessMsg, getErrorMsg } from '../../store/selectors';
 import {
@@ -99,6 +100,15 @@ const ItemDetail = ({
       )}
     </Layout>
   );
+};
+
+ItemDetail.propTypes = {
+  error: PropTypes.string,
+  success: PropTypes.string,
+  getProductById: PropTypes.string.isRequired,
+  setSuccessMsg: PropTypes.string.isRequired,
+  resetSuccessMsg: PropTypes.string.isRequired,
+  resetError: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({

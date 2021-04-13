@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import toast, { Toaster } from 'react-hot-toast';
 import { getErrorMsg } from '../store/selectors';
 import { resetError } from '../store/app/app.actions';
@@ -25,6 +26,11 @@ const Home = ({ error, resetError }) => {
       </Layout>
     </div>
   );
+};
+
+Home.propTypes = {
+  error: PropTypes.string,
+  resetError: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

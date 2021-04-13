@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { priceFormat } from '../../utils/helpers';
 import styles from '../../styles/items.module.scss';
 
@@ -39,6 +40,22 @@ const Item = ({ product }) => {
       </p>
     </li>
   );
+};
+
+Item.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.shape({
+      currency: PropTypes.string.isRequired,
+      amount: PropTypes.number.isRequired,
+      decimals: PropTypes.number,
+    }).isRequired,
+    picture: PropTypes.string.isRequired,
+    condition: PropTypes.string.isRequired,
+    free_shipping: PropTypes.bool.isRequired,
+    location: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Item;

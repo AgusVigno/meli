@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: ['react', 'jest'],
   rules: {
-    'react/prop-types': RULES.OFF,
+    camelcase: RULES.OFF,
   },
   settings: {
     react: {

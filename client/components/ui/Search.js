@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, compose } from 'redux';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import { fetchProducts } from '../../store/product/product.actions';
 import Loader from './Loader';
 import styles from '../../styles/index.module.scss';
@@ -42,6 +43,10 @@ const Search = ({ fetchProducts }) => {
       </form>
     </>
   );
+};
+
+Search.propTypes = {
+  fetchProducts: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) =>
