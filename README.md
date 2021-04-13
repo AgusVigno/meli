@@ -82,8 +82,29 @@ Además, se utilizaron las siguientes librerías para la configuración de forma
 
 ## Estructura General del Proyecto ##
 ### Frontend ###
+- __ __tests__ __: contiene los tests de control.
+- __components__: contiene los layouts y ui, desarrollado de forma generica para su reutilización.
+- __constants__: contiene las constantes del proyecto.
+- __mocks__: contiene datos mockeados, para ser usados en los test de control.
+- __pages__: contiene las vistas de la aplicación.
+- __public__: contiene los assets accesibles de forma publica.
+- __services__: contiene los servicios para comunicarse con la API del backend.
+- __store__: contiene la estructura del estado general de la aplicación. `store` contiene el estado general de la App. `reducer` contiene los reducer utilizados (app y product). `selectors` contiene los metodos para acceder a la informacion del estado de la App.
+- __store/app__: contiene lo referente al reducer app. `tipos, acciones y el reducer`
+- __store/product__: contiene lo referente al reducer product. `tipos, acciones y el reducer`
+- __styles__: contiene los estilos del proyecto.
+- __utils__: contiene funciones útiles para ser utilizadas por cualquier componente. `requestHandler` es quien se encarga de manejar las llamandas a la API del back (solicitadas desde los servicios), e invoca al `fetchHandler`. 
+
 ![Estructura Frontend](./readme/estructuraFront.png)
 ### Backend ###
+- __ __tests__ __: contiene los tests de control.
+- __constants__: contiene las constantes del proyecto.
+- __controllers__: contiene los controladores de las solicitudes a la API
+- __middleware__: contiene un middleware, que se ejecuta cuando se invoca un endpoint no disponible en la API.
+- __routes__: contiene los endpoints admitidos por la API.
+- __utils__: contiene las funciones útiles, las cuales son requeridas por los controladores, o quien las necesite.
+- __index.js__: requiere la configuración del servidor, y lo levanta por defecto en el puerto 4000
+- __server.js__: contiene toda la configuración del servidor.
 ![Estructura Backend](./readme/estructuraBack.png)
 
 ## Vistas ##
